@@ -1,0 +1,114 @@
+.container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f0f;
+  /* background-color: #6f42c1; */
+  /* color: #000; */
+}
+
+.content {
+  padding: 0 18px;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.content a {
+  text-decoration: none;
+}
+
+.logo {
+  color: #fff;
+  font-size: 42px;
+}
+
+.logo span {
+  color: #ff0000;
+}
+
+.linkPainel {
+  height: 30px;
+  align-items: center;
+  background-color: #f1f1f1;
+  color: #0f0f0f;
+  border-radius: 4px;
+  font-weight: 700;
+  padding: 8px 14px;
+  margin-left: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+    box-shadow: 0 0 10px #ff0000;
+    transform: scale(1.05);
+  }
+}
+
+.loginButton {
+  height: 30px;
+  align-items: center;
+  background-color: #ff0000;
+  color: #000;
+  border-radius: 4px;
+  border: none;
+  padding: 8px 32px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+    box-shadow: 0 0 10px #ff0000;
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .loginButton {
+    padding: 6px 21px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .linkPainel{
+    font-size: 14px;  
+    margin-left: 36px;  
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .loginButton {
+    padding: 8px 34px;
+    font-size: 18px;
+    height: 35px;
+  }
+
+  .linkPainel {
+    padding: 8px 34px;
+    font-size: 18px;
+    height: 35px;
+    margin-left: 42px;    
+  }
+  .logo {
+    color: #fff;
+    font-size: 50px;
+  }
+}
