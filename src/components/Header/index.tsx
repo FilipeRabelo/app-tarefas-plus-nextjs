@@ -19,16 +19,19 @@ export function Header() {
             </h1>
           </Link>
 
-          <Link href={'/dashboard'} className={styles.linkPainel}>
-            Meu painel
-          </Link>
+          {session?.user && (
+            <Link href={'/dashboard'} className={styles.linkPainel}>
+              Meu painel
+            </Link>
+          )}
+       
         </nav>
 
         {status === "loading" ? (
           <></>
         ) : session ? (
           <button className={styles.loginButton} onClick={() => signOut()}>
-            Olá {session?.user?.name}
+            {session?.user?.name}
           </button>
         ) : (
           <button className={styles.loginButton} onClick={() => signIn('google')}>

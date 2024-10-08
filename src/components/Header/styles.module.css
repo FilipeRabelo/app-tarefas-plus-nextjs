@@ -94,7 +94,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .loginButton {
     padding: 8px 34px;
     font-size: 18px;
@@ -111,4 +111,4 @@
     color: #fff;
     font-size: 50px;
   }
-}
+} */
