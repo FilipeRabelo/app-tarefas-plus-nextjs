@@ -1,3 +1,141 @@
-.container{
-  
+.container {
+  width: 100%;
+  /* background-color: #0f0f0f; */
+  /* height: 100vh; */
+}
+
+.content {
+  background-color: #0f0f0f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentForm {
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 18px;
+  padding-bottom: 28px;
+  margin-top: 32px;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.checkBoxArea {
+  margin: 14px 0;
+}
+
+.checkBoxArea label {
+  color: #fff;
+  margin-left: 8px;
+}
+
+.checkBox {
+  width: 18px;
+  height: 18px;
+}
+
+.button {
+  font-weight: bold;
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 18px;
+  background-color: #3183ff;
+  transition: all 0.5s;
+
+  &:hover {
+    box-shadow: 0 0 5px #3183ff;
+    transform: scale(1.01);
+  }
+}
+
+/* /////////////////////////////////// */
+
+/* .main{
+  background-color: #eee;
+} */
+
+.taskContainer {
+  background-color: #0f0f0f;
+  border: 1px solid #ff0000;
+  border-radius: 8px;
+  margin: 14px auto 36px auto;
+  padding: 18px 18px;
+  width: 94%;
+  max-width: 995px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
+
+.taskContainer a {
+  text-decoration: none;
+  color: #0f0f0f;
+}
+
+.taskContainer h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.task {
+  background-color: #fff;
+  margin-bottom: 14px;
+  line-height: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1.5px solid #909090;
+  box-shadow: 0 0 5px rgba(220, 20, 60, 0.5);
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.tagContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.tag {
+  background-color: #3183ff;
+  padding: 2px 6px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.shareButton {
+  background-color: transparent;
+  border: 0;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.taskContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.taskContent p {
+  white-space: pre-wrap; /* para respeitar as quebras de linha com o enter*/
+}
+
+.trashButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  margin: 0 8px;
 }

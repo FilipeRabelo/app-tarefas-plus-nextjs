@@ -1,0 +1,17 @@
+.textArea{
+  width: 100%;
+  resize: none;
+  height: 160px;
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
+  box-shadow: 0 2px 4px #ff0000;
+  transition: all 0.7s;
+  font-size: 16px;
+  background-color: #eee;
+
+  &:hover{
+    background-color: #fff;
+    box-shadow: none;
+  }
+}
