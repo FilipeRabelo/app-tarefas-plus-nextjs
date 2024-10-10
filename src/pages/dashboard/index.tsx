@@ -179,6 +179,54 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
         </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section className={styles.tarefaContainer}>
+          <h1>Minhas Tarefas</h1>
+
+          {tarefas.map((item) => (
+
+            <article key={item.id} className={styles.tarefa}>
+
+              {item.public && (                                   // && se ela tiver publica mostra a div
+                <div className={styles.tagContainer}>
+                  <label className={styles.tag}>PÚBLICO</label>
+                  <button className={styles.shareButton}>
+                    <FiShare2
+                      size={22}
+                      color="#3183ff"
+                    />
+                  </button>
+                </div>
+              )}
+
+              <div className={styles.tarefaContent}>
+                <p>{item.tarefa}</p>
+                <button className={styles.trashButton}>
+                  <FaTrash
+                    size={24}
+                    color="#FF0000"
+                  />
+                </button>
+              </div>
+            </article>
+
+          ))}
+
+        </section>
+
       </main>
     </div>
   )
