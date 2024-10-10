@@ -156,7 +156,7 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
                   <button className={styles.shareButton}>
                     <FiShare2
                       size={22}
-                      color="#3183ff"z
+                      color="#3183ff"
                     />
                   </button>
                 </div>
