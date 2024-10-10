@@ -91,7 +91,7 @@
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 19px;
     text-align: center;
   }
 
@@ -105,9 +105,9 @@
   }
 
   .loginButton, .linkPainel{
-    padding: 4px 6px;
+    padding: 6px 6px;
     font-size: 12px;
-    height: 20px;
+    height: 25px;
   }
  
 
