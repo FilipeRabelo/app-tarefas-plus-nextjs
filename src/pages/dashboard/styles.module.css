@@ -62,7 +62,7 @@
   background-color: #eee;
 } */
 
-.taskContainer {
+.tarefaContainer {
   background-color: #0f0f0f;
   border: 1px solid #ff0000;
   border-radius: 8px;
@@ -75,19 +75,19 @@
   box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
 }
 
-.taskContainer a {
+.tarefaContainer a {
   text-decoration: none;
   color: #0f0f0f;
 }
 
-.taskContainer h1 {
+.tarefaContainer h1 {
   text-align: center;
   font-size: 32px;
   margin-bottom: 14px;
   color: #fff;
 }
 
-.task {
+.tarefa {
   background-color: #fff;
   margin-bottom: 14px;
   line-height: 150%;
@@ -122,14 +122,14 @@
   cursor: pointer;
 }
 
-.taskContent {
+.tarefaContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-.taskContent p {
+.tarefaContent p {
   white-space: pre-wrap; /* para respeitar as quebras de linha com o enter*/
 }
 
