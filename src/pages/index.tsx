@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         <h1 className={styles.title}>
-          Sistema para organizar estudos e tarefas com eficiência.
+          Sistema para Organizar seus Estudos e Tarefas com Eficiência.
         </h1>
 
         <div className={styles.infoContent}>
