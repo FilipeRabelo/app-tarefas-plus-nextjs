@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from '../../styles/home.module.css';
 import Image from "next/image";
 import heroImg from '../../public/assets/hero.png'
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,6 +15,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+
         <div className={styles.logoContent}>
           <Image
             src={heroImg}
@@ -24,29 +24,21 @@ export default function Home() {
             priority
           />
         </div>
+
         <h1 className={styles.title}>
           Sistema para organizar estudos e tarefas com eficiência.
         </h1>
 
         <div className={styles.infoContent}>
           <section className={styles.box}>
-            <a href={'/dashboard'} className={styles.linkPainel}>
-              Meu painel - dashboard
-            </a>
+            <span>+ 12 post</span>
           </section>
 
-          {/* 
-            <section className={styles.box}>
-              <span>+ 12 post</span>
-            </section>
-
-            <section className={styles.box}>
-              <span>+ 90 comentários</span>
-            </section> 
-          */}
-
+          <section className={styles.box}>
+            <span>+ 90 comentários</span>
+          </section>
         </div>
-         
+
       </main>
     </div>
   );
