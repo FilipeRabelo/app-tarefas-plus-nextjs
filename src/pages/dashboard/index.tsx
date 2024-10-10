@@ -115,11 +115,11 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
         <section className={styles.content}>
           <div className={styles.contentForm}>
-            <h1 className={styles.title}>Qual sua Tarefa?</h1>
+            <h1 className={styles.title}>Vamos Começar! Qual é a sua Tarefa?</h1>
             <form onSubmit={handleRegisterTask}>
 
               <TextArea
-                placeholder="Digite qual sua tarefa!"
+                placeholder="Digite sua Tarefa!"
                 value={input}     // useState - estado
                 onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setInput(event.target.value)}
               // cada vez q digite um text onChange pega e passa para a state - input
@@ -142,6 +142,8 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
             </form>
           </div>
         </section>
+
+        <hr className={styles.hr}/>
 
         <section className={styles.tarefaContainer}>
           <h1>Minhas Tarefas</h1>

@@ -5,9 +5,10 @@
   border-radius: 8px;
   outline: none;
   padding: 8px;
-  box-shadow: 0 2px 4px #ff0000;
+  box-shadow: 0 0px 5px #fff;
   transition: all 0.7s;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 550;
   background-color: #eee;
 
   &:hover{

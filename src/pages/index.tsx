@@ -31,11 +31,11 @@ export default function Home() {
 
         <div className={styles.infoContent}>
           <section className={styles.box}>
-            <span>+ 12 post</span>
+            <span className={styles.span}>+ 12 post</span>
           </section>
 
           <section className={styles.box}>
-            <span>+ 90 comentários</span>
+            <span className={styles.span}>+ 90 comentários</span>
           </section>
         </div>
 

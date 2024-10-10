@@ -22,7 +22,7 @@
 
 .title {
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 .checkBoxArea {
@@ -46,7 +46,7 @@
   border: 0;
   border-radius: 4px;
   color: #fff;
-  font-size: 18px;
+  font-size: 22px;
   background-color: #3183ff;
   transition: all 0.5s;
 
@@ -62,11 +62,20 @@
   background-color: #eee;
 } */
 
+.hr{
+  width: 92%;
+  max-width: 985px;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto;
+}
+
 .tarefaContainer {
-  background-color: #0f0f0f;
+  background-color: #eee;
   border: 1px solid #ff0000;
   border-radius: 8px;
-  margin: 14px auto 36px auto;
+  
+  margin: 49px auto ;
   padding: 18px 18px;
   width: 94%;
   max-width: 995px;
@@ -78,17 +87,21 @@
 .tarefaContainer a {
   text-decoration: none;
   color: #0f0f0f;
+  background-color: #fff;
 }
 
 .tarefaContainer h1 {
+  background-color: #eee;
   text-align: center;
   font-size: 32px;
-  margin-bottom: 14px;
-  color: #fff;
+  margin-bottom: 18px;
 }
 
 .tarefa {
-  background-color: #fff;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: bold;
+  background-color: #0f0f0f;
   margin-bottom: 14px;
   line-height: 150%;
   display: flex;
@@ -96,8 +109,8 @@
   align-items: flex-start;
   border: 1.5px solid #909090;
   box-shadow: 0 0 5px rgba(220, 20, 60, 0.5);
-  border-radius: 4px;
-  padding: 14px;
+  border-radius: 6px;
+  padding: 18px 14px;
 }
 
 .tagContainer {
