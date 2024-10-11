@@ -42,7 +42,7 @@
 }
 
 .linkPainel {
-  height: 30px;
+  height: 35px;
   align-items: center;
   background-color: #f1f1f1;
   color: #0f0f0f;
@@ -65,7 +65,7 @@
 }
 
 .loginButton {
-  height: 30px;
+  height: 35px;
   align-items: center;
   background-color: #ff0000;
   color: #000;

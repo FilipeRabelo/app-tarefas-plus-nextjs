@@ -56,21 +56,10 @@
 
 /* /////////////////////////////////// */
 
-/* .main{
-  background-color: #eee;
-} */
-
-.hr {
-  width: 92%;
-  max-width: 985px;
-  align-items: center;
-  justify-content: center;
-  margin: 24px auto;
-}
 
 .tarefaContainer {
-  background-color: #eee;
-  border: 1px solid #ff0000;
+  background-color: #1d1d2e;
+  border: 1px solid rgba(220, 20, 60, 0.5);
   border-radius: 8px;
 
   margin: 49px auto;
@@ -85,11 +74,11 @@
 .tarefaContainer a {
   text-decoration: none;
   color: #0f0f0f;
-  background-color: #fff;
 }
 
 .tarefaContainer h1 {
-  background-color: #eee;
+  background-color: #1d1d2e;
+  color: #FFF;
   text-align: center;
   font-size: 32px;
   margin-bottom: 18px;
@@ -100,7 +89,6 @@
   text-transform: capitalize;
   color: #fff;
   font-weight: bold;
-  background-color: #0f0f0f;
   margin-bottom: 14px;
   line-height: 150%;
   display: flex;
@@ -129,7 +117,6 @@
 }
 
 .shareButton {
-  background-color: transparent;
   border: 0;
   margin: 0 8px;
   cursor: pointer;
@@ -142,16 +129,15 @@
   width: 100%;
 }
 
-.linkTarefaPublica p{
-  color: #FFF;
+
+.linkTarefaPublica p {
+  color: #fff;
   white-space: pre-wrap;
 }
 
 .tarefaContent p {
   white-space: pre-wrap; /* para respeitar as quebras de linha com o enter*/
 }
-
-
 
 .trashButton {
   cursor: pointer;
@@ -176,7 +162,6 @@
 }
 
 @media screen and (max-width: 400px) {
-
   .title {
     font-size: 17px;
   }

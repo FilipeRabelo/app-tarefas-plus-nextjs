@@ -16,6 +16,10 @@ export default function Home() {
 
       <main className={styles.main}>
 
+        <h1 className={styles.logo}>
+          Tarefas <span>Plus</span>
+        </h1>
+
         <div className={styles.logoContent}>
           <Image
             src={heroImg}

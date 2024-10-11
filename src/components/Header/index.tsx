@@ -4,6 +4,9 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from "next/link";
 import styles from '../Header/styles.module.css';
 
+import Image from 'next/image';
+
+
 export function Header() {
 
   const { data: session, status } = useSession();
@@ -13,9 +16,11 @@ export function Header() {
       <section className={styles.content}>
 
         <Link href={'/'}>
-          <h1 className={styles.logo}>
+          {/* <h1 className={styles.logo}>
             Tarefas <span>Plus</span>
-          </h1>
+          </h1> */}
+          {/* <img src="../../../public/assets/hero.png" alt="logo"/> */}
+          <Image src="/assets/hero.png" alt="logo" width={100} height={50} />
         </Link>
 
         <nav className={styles.nav}>

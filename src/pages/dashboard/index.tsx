@@ -43,12 +43,9 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
   const [input, setInput] = useState('');                     // armazenando o q foi digitado
   const [publicTarefa, setPublicTarefa] = useState(false);    // para armazenar se o check Box de tarefa publica
-
   const [tarefas, setTarefas] = useState<TarefasProps[]>([]); // estado para armazenar a lista de item;
 
-
   useEffect(() => {                                           // qndo abrir o componente ele buscar as tarefas no bd
-
     async function loadTarefas() {
 
       const tarefasRef = collection(db, 'tarefas');           // buscando no bd - referencia
@@ -73,21 +70,16 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
           })
         })
 
-        // console.log(lista);
         setTarefas(lista);                  // passando a lista com os itens salvos no bd para a useState
-
       })
     }
 
     loadTarefas();
-
   }, [user?.email]);
-
 
   function handleChangePublic(event: ChangeEvent<HTMLInputElement>) {  // button checkbox - deixar tarefa publica
     setPublicTarefa(event.target.checked);
   };
-
 
   async function handleRegisterTask(event: FormEvent) {     // comunicar com o bando de dados - async
     event.preventDefault();
@@ -113,19 +105,16 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
     } catch (error) {
       console.log(error);
     };
-
   };
  
   async function handleShare(id: string){
     await navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_URL}/tarefa/${id}`
     )
-
     alert('Url copiada com sucesso')
   }
 
   async function handleDeleteTarefa(id: string){
-    
     const docRef = doc(db, 'tarefas', id);
     await deleteDoc(docRef);
 
@@ -146,6 +135,7 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
         <section className={styles.content}>
           <div className={styles.contentForm}>
             <h1 className={styles.title}>Vamos Começar! Qual é a sua Tarefa?</h1>
+
             <form onSubmit={handleRegisterTask}>
 
               <TextArea
@@ -173,15 +163,13 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
           </div>
         </section>
 
-        {/* <hr className={styles.hr} /> */}
 
         <section className={styles.tarefaContainer}>
+          
           <h1>Minhas Tarefas</h1>
 
           {tarefas.map((item) => (
-
             <article key={item.id} className={styles.tarefa}>
-
               <div className={styles.tarefaContent}> 
                 
                 {/* se item.public ? for TRUE mostra o link, se nao : mostra o P */}
@@ -197,13 +185,12 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
                 <button className={styles.trashButton} onClick={() => handleDeleteTarefa(item.id)}>
                   <FaTrash
                     size={24}
-                    color="#FF0000"
+                    color="#FF0000"                    
                   />
                 </button>
               </div>
 
               {item.public && (                 // && se ela tiver publica mostra a div
-                
                 <div className={styles.tagContainer}>
                   <label className={styles.tag}>PÚBLICO</label>
 
@@ -213,12 +200,9 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
                       color="#3183ff"
                     />
                   </button>
-                
                 </div>
               )}
-
             </article>
-
           ))}
 
         </section>
