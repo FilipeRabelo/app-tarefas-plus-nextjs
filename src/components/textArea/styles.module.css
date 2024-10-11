@@ -9,7 +9,7 @@
   transition: all 0.7s;
   font-size: 18px;
   font-weight: 550;
-  background-color: #eee;
+  background-color: #ccc;
 
   &:hover{
     background-color: #fff;
