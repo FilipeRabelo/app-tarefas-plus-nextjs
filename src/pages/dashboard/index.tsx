@@ -1,17 +1,29 @@
+
 import { GetServerSideProps } from "next";
 import { getSession } from 'next-auth/react';
-
-import { db } from '@/services/firebaseConnection';                    // banco de dados
-import { addDoc, collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';                 // métodos
-import React, { ChangeEvent, FormEvent, useState, useEffect } from "react";
 
 import { TextArea } from "@/components/textArea";
 import { FiShare2 } from 'react-icons/fi';
 import { FaTrash } from 'react-icons/fa';
 
+import React, { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import Head from "next/head";
 import styles from './styles.module.css';
-import { lstat } from "fs";
+import Link from "next/link";
+
+import { db } from '@/services/firebaseConnection';                    // banco de dados
+import { 
+  addDoc, 
+  doc,
+  deleteDoc,
+  collection, 
+  query, 
+  where, 
+  orderBy, 
+  onSnapshot
+} from 'firebase/firestore';                                          // métodos firebase
+
+// import { lstat } from "fs";
 
 interface HomeProps {
   user: {
@@ -42,13 +54,14 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
       const tarefasRef = collection(db, 'tarefas');           // buscando no bd - referencia
       const q = query(
         tarefasRef,
-        orderBy("created", "desc"),                           // ordenando por ordem de criacao
+        orderBy("created", "desc"),                           // ordenando por ordem de criação
         where('user', '==', user?.email)                      // buscando == email logado 
       );
 
+      // onSnapshot - fica verificando sempre o banco de dados
       onSnapshot(q, (snapshot) => {                      // snapshot tenho acesso a todos os dados da query
 
-        let lista = [] as TarefasProps[];
+        let lista = [] as TarefasProps[]; // colocando dentro da var lista
 
         snapshot.forEach((documento) => {
           lista.push({                                   // itens da tipagem TarefasProps
@@ -85,7 +98,6 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
     };
 
     try {
-
       await addDoc(collection(db, 'tarefas'), {  // addDoc para criar um documento com um id aleatório
         created: new Date(),                     // enviando as props para BD
         public: publicTarefa,
@@ -96,11 +108,29 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
       setInput('');
       setPublicTarefa(false);
 
+      alert("Tarefa cadastrada com sucesso!")
+
     } catch (error) {
       console.log(error);
     };
 
   };
+ 
+  async function handleShare(id: string){
+    await navigator.clipboard.writeText(
+      `${process.env.NEXT_PUBLIC_URL}/tarefa/${id}`
+    )
+
+    alert('Url copiada com sucesso')
+  }
+
+  async function handleDeleteTarefa(id: string){
+    
+    const docRef = doc(db, 'tarefas', id);
+    await deleteDoc(docRef);
+
+    alert('Tarefa deletada com sucesso!')
+  }
 
   return (
     <div className={styles.container}>
@@ -143,7 +173,7 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
           </div>
         </section>
 
-        <hr className={styles.hr}/>
+        {/* <hr className={styles.hr} /> */}
 
         <section className={styles.tarefaContainer}>
           <h1>Minhas Tarefas</h1>
@@ -152,39 +182,50 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
             <article key={item.id} className={styles.tarefa}>
 
-              {item.public && (                                   // && se ela tiver publica mostra a div
-                <div className={styles.tagContainer}>
-                  <label className={styles.tag}>PÚBLICO</label>
-                  <button className={styles.shareButton}>
-                    <FiShare2
-                      size={22}
-                      color="#3183ff"
-                    />
-                  </button>
-                </div>
-              )}
+              <div className={styles.tarefaContent}> 
+                
+                {/* se item.public ? for TRUE mostra o link, se nao : mostra o P */}
 
-              <div className={styles.tarefaContent}>
-                <p>{item.tarefa}</p>
-                <button className={styles.trashButton}>
+                {item.public ? (                     
+                  <Link href={`/tarefa/${item.id}`} className={styles.linkTarefaPublica}> 
+                    <p>{item.tarefa}</p>
+                  </Link>
+                ) : (
+                  <p>{item.tarefa}</p>
+                )}
+
+                <button className={styles.trashButton} onClick={() => handleDeleteTarefa(item.id)}>
                   <FaTrash
                     size={24}
                     color="#FF0000"
                   />
                 </button>
               </div>
+
+              {item.public && (                 // && se ela tiver publica mostra a div
+                
+                <div className={styles.tagContainer}>
+                  <label className={styles.tag}>PÚBLICO</label>
+
+                  <button className={styles.shareButton} onClick={ () => handleShare(item.id)}>
+                    <FiShare2
+                      size={22}
+                      color="#3183ff"
+                    />
+                  </button>
+                
+                </div>
+              )}
+
             </article>
 
           ))}
 
         </section>
-
       </main>
     </div>
   )
 }
-
-
 
 
 // bloquear a toda de dashboard sem estar logado

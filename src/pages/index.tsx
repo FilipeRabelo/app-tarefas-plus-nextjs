@@ -26,10 +26,10 @@ export default function Home() {
         </div>
 
         <h1 className={styles.title}>
-          Sistema para Organizar seus Estudos e Tarefas com Eficiência.
+          Sistema que Transforma seus Estudos e Organiza suas Tarefas
         </h1>
 
-        <div className={styles.infoContent}>
+        {/* <div className={styles.infoContent}>
           <section className={styles.box}>
             <span className={styles.span}>+ 12 post</span>
           </section>
@@ -37,7 +37,7 @@ export default function Home() {
           <section className={styles.box}>
             <span className={styles.span}>+ 90 comentários</span>
           </section>
-        </div>
+        </div> */}
 
       </main>
     </div>

@@ -1,7 +1,5 @@
 .container {
   width: 100%;
-  /* background-color: #0f0f0f; */
-  /* height: 100vh; */
 }
 
 .content {
@@ -46,12 +44,12 @@
   border: 0;
   border-radius: 4px;
   color: #fff;
-  font-size: 22px;
+  font-size: 21px;
   background-color: #3183ff;
   transition: all 0.5s;
 
   &:hover {
-    box-shadow: 0 0 5px #3183ff;
+    box-shadow: 0 0 10px #f1f1f1;
     transform: scale(1.01);
   }
 }
@@ -62,7 +60,7 @@
   background-color: #eee;
 } */
 
-.hr{
+.hr {
   width: 92%;
   max-width: 985px;
   align-items: center;
@@ -74,8 +72,8 @@
   background-color: #eee;
   border: 1px solid #ff0000;
   border-radius: 8px;
-  
-  margin: 49px auto ;
+
+  margin: 49px auto;
   padding: 18px 18px;
   width: 94%;
   max-width: 995px;
@@ -95,6 +93,7 @@
   text-align: center;
   font-size: 32px;
   margin-bottom: 18px;
+  font-weight: bold;
 }
 
 .tarefa {
@@ -115,9 +114,10 @@
 
 .tagContainer {
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
+  justify-content: space-between;
+  margin-top: 18px;
 }
 
 .tag {
@@ -142,9 +142,16 @@
   width: 100%;
 }
 
+.linkTarefaPublica p{
+  color: #FFF;
+  white-space: pre-wrap;
+}
+
 .tarefaContent p {
   white-space: pre-wrap; /* para respeitar as quebras de linha com o enter*/
 }
+
+
 
 .trashButton {
   cursor: pointer;
@@ -153,9 +160,28 @@
   margin: 0 8px;
 }
 
+@media screen and (max-width: 668px) {
+  .contentForm {
+    margin-top: 14px;
+  }
 
-@media screen and (max-width: 668px){
-  .title{
-    font-size: 20px;
+  .title {
+    font-size: 21px;
+    /* text-align: center; */
+  }
+
+  .tarefaContainer h1 {
+    font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .title {
+    font-size: 17px;
+  }
+
+  .tarefaContainer h1 {
+    font-size: 21px;
   }
 }
