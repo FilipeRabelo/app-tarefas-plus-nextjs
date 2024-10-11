@@ -58,7 +58,7 @@
 
 
 .tarefaContainer {
-  background-color: #1d1d2e;
+  background-color: #aaa;
   border: 1px solid rgba(220, 20, 60, 0.5);
   border-radius: 8px;
 
@@ -77,8 +77,8 @@
 }
 
 .tarefaContainer h1 {
-  background-color: #1d1d2e;
-  color: #FFF;
+  background-color: #aaa;
+  color: #000;
   text-align: center;
   font-size: 32px;
   margin-bottom: 18px;
