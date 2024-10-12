@@ -5,14 +5,13 @@
   border-radius: 8px;
   outline: none;
   padding: 8px;
-  box-shadow: 0 0px 5px #fff;
+  font-size: 19px;
+  font-weight: 600;
+  background-color: #ddd;
   transition: all 0.7s;
-  font-size: 18px;
-  font-weight: 550;
-  background-color: #ccc;
 
   &:hover{
     background-color: #fff;
-    box-shadow: none;
+    box-shadow: 0 0px 5px #fff;
   }
 }

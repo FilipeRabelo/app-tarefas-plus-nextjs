@@ -140,9 +140,10 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
               <TextArea
                 placeholder="Digite sua Tarefa!"
-                value={input}     // useState - estado
+                
+                value={input}                      // useState - estado
                 onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setInput(event.target.value)}
-              // cada vez q digite um text onChange pega e passa para a state - input
+                // cada vez q digite um text onChange pega e passa para a state - input
               />
 
               <div className={styles.checkBoxArea}>
