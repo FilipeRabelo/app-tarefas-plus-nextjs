@@ -1,25 +1,85 @@
 .container {
   width: 100%;
   max-width: 1024px;
-  height: calc(100vh - 60px);
-}
-
-.main {
+  margin: 40px auto 0 auto;
+  padding: 0 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0f0f0f;
-  width: 100%;
-  max-width: 1024px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.container h1 {
+.main {
+  width: 100%;
+  
+  border-radius: 6px;
+  background-color: #1d1d2e;
+  border: 1.5px solid #909090;
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+  padding: 16px 8px;
+}
+
+.main h1 {
+  background-color: #1d1d2e;
+  margin-bottom: 14px;
   color: #fff;
+}
+
+.tarefa {
+  border: 1.5px solid #909090;
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+  border-radius: 6px;
+  padding: 14px;
+  line-height: 150%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
+  background-color: #ddd;
+  color: #000;
+}
+
+.tarefa p {
+  white-space: pre-wrap;
+  width: 100%;
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.comentariosContent {
+  width: 100%;
+  max-width: 1024px;
+  margin: 28px 0;
+
+  border-radius: 6px;
+  background-color: #1d1d2e;
+  border: 1.5px solid #909090;
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+  padding: 16px 8px;
+}
+
+.comentariosContent h2 {
+  background-color: #1d1d2e;
+  margin-bottom: 19px;
+  color: #fff;
+}
+
+.btn {
+  width: 100%;
+  padding: 11px 0;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #3183ff;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.7s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.form {
+  background-color: #1d1d2e;
 }

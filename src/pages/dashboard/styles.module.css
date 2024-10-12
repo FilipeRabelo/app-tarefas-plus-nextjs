@@ -86,6 +86,7 @@
 }
 
 .tarefa {
+  background-color: #101026;
   min-height: 100px;
   justify-content: center;
   text-transform: capitalize;

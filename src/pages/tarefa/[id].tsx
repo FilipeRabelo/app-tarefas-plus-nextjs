@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import React from 'react';
 import Head from 'next/head';
 import styles from './styles.module.css';
+import { TextArea } from '@/components/textArea';
 
 import { db } from '../../services/firebaseConnection';
 import {
@@ -16,8 +17,18 @@ import {
 } from 'firebase/firestore';
 
 
+interface TarefaProps{
+  propObjTarefa:{
+    tarefaId: string,
+    user: string,
+    tarefa: string,
+    public: boolean,
+    created: string
+  }
+}
 
-export default function Tarefa() {
+
+export default function Tarefa({ propObjTarefa }: TarefaProps) {  // preciso passar o quem tem dentro da propriedade
   return (
     <div className={styles.container}>
       <Head>
@@ -27,11 +38,28 @@ export default function Tarefa() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Pagina de Tarefa</h1>
+        <h1>Tarefa</h1>
+        <article className={styles.tarefa}>
+          <p>{propObjTarefa?.tarefa}</p>
+        </article>
       </main>
+
+      <section className={styles.comentariosContent}>
+        <h2>Fazer Comentário</h2>
+
+        <form className={styles.form}>
+          <TextArea
+            placeholder='Digite seu Comentário!'
+          />
+
+          <button className={styles.btn}>
+            Enviar Comentário
+          </button>
+        </form>
+      </section>
     </div>
   )
-} 
+}
 
 
 // server side
@@ -39,23 +67,23 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   const id = params?.id as string;
 
-  const docRef= doc(db, 'tarefas', id);       // referencia - acessando o caminho - id da tarefa
+  const docRef = doc(db, 'tarefas', id);      // referencia - acessando o caminho - id da tarefa
   const snapshot = await getDoc(docRef);      // buscando o documento la no banco de dados
 
   // para verificar se a tarefa existe
-  if(snapshot.data() === undefined){          // se nao achar a tarefa direciona para a home
-    return{
-      redirect:{
+  if (snapshot.data() === undefined) {        // se nao achar a tarefa direciona para a home
+    return {
+      redirect: {
         destination: '/',
         permanent: false
       }
     }
   }
-  
-  // verificando se a tarefa NAO for publica - manda para o home
-  if(!snapshot.data()?.public){
-    return{
-      redirect:{
+
+
+  if (!snapshot.data()?.public) {   // verificando se a tarefa NAO for publica - manda para o home
+    return {
+      redirect: {
         destination: '/',
         permanent: false
       }
@@ -65,20 +93,20 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   // convertendo a data
   const miliseconds = snapshot.data()?.created?.seconds * 1000;
 
-  const task = {
-    taskId: id,
+  const objetoTarefa = {                                        // objeto 
+    tarefaId: id,                                               // passar esse obj para o component
     user: snapshot.data()?.user,
     tarefa: snapshot.data()?.tarefa,
     public: snapshot.data()?.public,
     created: new Date(miliseconds).toLocaleDateString()
   }
 
+  console.log(objetoTarefa);
 
-
-  console.log(task);
-
-  return {
-    props: {}
+  return {                      // passando o obj como propriedades para o component
+    props: {
+      propObjTarefa: objetoTarefa,
+    }
   }
 }
 
