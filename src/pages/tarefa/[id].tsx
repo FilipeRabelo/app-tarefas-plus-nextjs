@@ -120,7 +120,7 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
         <h2>Todos os Comentários</h2>
 
         {comments.length === 0 && (
-          <span>Nenhum Comentário</span>
+          <span className={styles.spanOffComent}>Nenhum Comentário</span>
         )}
 
         {comments.map((item) => (

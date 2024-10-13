@@ -81,7 +81,7 @@
 }
 
 .btn:disabled {
-  /* qndo o botao tiver desativado */
+  /* qndo o botão tiver desativado */
 
   cursor: not-allowed;
   background-color: rgba(49, 131, 255, 0.604);
@@ -139,10 +139,9 @@
   width: 100%;
   color: #fff;
   font-weight: bold;
-  
 }
 
-.commentsLabelName span{
+.commentsLabelName span {
   color: #3183ff;
 }
 
@@ -160,4 +159,19 @@
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   padding: 17px 7px;
+}
+
+.spanOffComent {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 17px 7px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #000;
+  background-color: #ddd;
 }
