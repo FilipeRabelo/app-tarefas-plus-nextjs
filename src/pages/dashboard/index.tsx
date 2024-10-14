@@ -12,14 +12,14 @@ import styles from './styles.module.css';
 import Link from "next/link";
 
 import { db } from '@/services/firebaseConnection';                    // banco de dados
-import { 
-  addDoc, 
+import {
+  addDoc,
   doc,
   deleteDoc,
-  collection, 
-  query, 
-  where, 
-  orderBy, 
+  collection,
+  query,
+  where,
+  orderBy,
   onSnapshot
 } from 'firebase/firestore';                                          // métodos firebase
 
@@ -106,15 +106,15 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
       console.log(error);
     };
   };
- 
-  async function handleShare(id: string){
+
+  async function handleShare(id: string) {
     await navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_URL}/tarefa/${id}`
     )
     alert('Url copiada com sucesso')
   }
 
-  async function handleDeleteTarefa(id: string){
+  async function handleDeleteTarefa(id: string) {
     const docRef = doc(db, 'tarefas', id);
     await deleteDoc(docRef);
 
@@ -140,10 +140,10 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
               <TextArea
                 placeholder="Digite sua Tarefa!"
-                
+
                 value={input}                      // useState - estado
                 onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setInput(event.target.value)}
-                // cada vez q digite um text onChange pega e passa para a state - input
+              // cada vez q digite um text onChange pega e passa para a state - input
               />
 
               <div className={styles.checkBoxArea}>
@@ -166,17 +166,17 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
 
 
         <section className={styles.tarefaContainer}>
-          
+
           <h1>Minhas Tarefas</h1>
 
           {tarefas.map((item) => (
             <article key={item.id} className={styles.tarefa}>
-              <div className={styles.tarefaContent}> 
-                
+              <div className={styles.tarefaContent}>
+
                 {/* se item.public ? for TRUE mostra o link, se nao : mostra o P */}
 
-                {item.public ? (                     
-                  <Link href={`/tarefa/${item.id}`} className={styles.linkTarefaPublica}> 
+                {item.public ? (
+                  <Link href={`/tarefa/${item.id}`} className={styles.linkTarefaPublica}>
                     <p>{item.tarefa}</p>
                   </Link>
                 ) : (
@@ -186,17 +186,27 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
                 <button className={styles.trashButton} onClick={() => handleDeleteTarefa(item.id)}>
                   <FaTrash
                     size={24}
-                    color="#FF0000"                    
+                    color="#FF0000"
                   />
                 </button>
-                
+
               </div>
 
               {item.public && (                 // && se ela tiver publica mostra a div
                 <div className={styles.tagContainer}>
-                  <label className={styles.tag}>PÚBLICO</label>
 
-                  <button className={styles.shareButton} onClick={ () => handleShare(item.id)}>
+                  <div className={styles.divContainer}>
+                    <label className={styles.tag}>PÚBLICO</label>
+
+                    {item.public && (
+                      <Link href={`/tarefa/${item.id}`} className={styles.linkTarefaPublica}>
+                        <label className={styles.labelComments}>COMENTÁRIOS</label>
+                      </Link>
+                    )}
+                  </div>
+
+
+                  <button className={styles.shareButton} onClick={() => handleShare(item.id)}>
                     <FiShare2
                       size={22}
                       color="#3183ff"
