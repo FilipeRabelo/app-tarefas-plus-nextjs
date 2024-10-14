@@ -9,6 +9,7 @@ import {
   collection,
   query,
   where,
+  deleteDoc
 } from 'firebase/firestore';
 
 import Head from 'next/head';
@@ -79,6 +80,23 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
     }
   }
 
+  async function handleDeleteComment(id: string){
+    try{      
+      const docRef = doc(db, 'comments', id);   // criando a referencia e buscando no db
+      await deleteDoc(docRef);                  // deletando essa referencia - id do comment
+      const deleteComment = comments.filter((item) => item.id !== id); // filter() devolve todos os item menos o que cliquei
+      setComments(deleteComment);   // passando nova lista para o useState sem o deletado
+
+      alert('Comentário deletado');
+    }catch(err){
+      console.log(err)
+    }
+    // acessar a useState, achar o item deletado e mostrar ela sem ele
+    // se o id for diferente do que eu deletei ele mantém o comentário
+    // vai percorrer todo os itens
+  }
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -88,7 +106,8 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
       </Head>
 
       <main className={styles.main}>
-        <h1>Tarefa</h1>
+        <h1>Tarefa </h1>
+
         <article className={styles.tarefa}>
           <p>{item?.tarefa}</p>
         </article>
@@ -114,7 +133,6 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
         </form>
       </section>
 
-
       {/* COMENTARIOS */}
       <section className={styles.commentsContainer}>
         <h2>Todos os Comentários</h2>
@@ -132,7 +150,7 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
               <label className={styles.commentsLabelName}><span>{item.name}</span></label>
 
               {item.user === session?.user?.email && (
-                <button className={styles.buttonTrash}>
+                <button className={styles.buttonTrash} onClick={() => handleDeleteComment(item.id)}>
                   <FaTrash
                     size={24}
                     color='#FF0000'
@@ -141,14 +159,11 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
               )}
 
             </div>
-
-            
-
+          
           </article>
         ))}
 
       </section>
-
     </div>
   )
 }
@@ -179,8 +194,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {  /
       tarefaId: doc.data().tarefaId
     })
   })
-
-
 
 
 

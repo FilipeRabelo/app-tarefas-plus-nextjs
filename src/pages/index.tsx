@@ -1,9 +1,21 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import styles from '../../styles/home.module.css';
 import Image from "next/image";
 import heroImg from '../../public/assets/hero.png'
 
-export default function Home() {
+import { db } from '../services/firebaseConnection';
+import {
+  collection,
+  getDocs
+} from 'firebase/firestore';
+
+interface HomeProps{
+  posts: number,
+  comments: number
+}
+
+export default function Home({posts, comments}: HomeProps) {
   return (
     <div className={styles.container}>
 
@@ -33,17 +45,36 @@ export default function Home() {
           Sistema que Transforma seus Estudos e Organiza suas Tarefas
         </h1>
 
-        {/* <div className={styles.infoContent}>
+        <div className={styles.infoContent}>
           <section className={styles.box}>
-            <span className={styles.span}>+ 12 post</span>
+            <span className={styles.span}>+ {posts} post</span>
           </section>
 
           <section className={styles.box}>
-            <span className={styles.span}>+ 90 comentários</span>
+            <span className={styles.span}>+ {comments} comentários</span>
           </section>
-        </div> */}
+        </div>
 
       </main>
     </div>
   );
+}
+ 
+// buscar do db e mandar para o component
+
+export const getStaticProps: GetStaticProps = async () => {
+
+  const commentRef = collection(db, 'comments');
+  const postRef = collection(db, "tarefas");
+
+  const commentSnapshot = await getDocs(commentRef);
+  const postSnapshot = await getDocs(postRef);
+
+  return{
+    props:{
+      posts: postSnapshot.size || 0,
+      comments: commentSnapshot.size || 0
+    },
+    revalidate: 60, // seria revalidada a cada 60segundos;
+  }
 }
