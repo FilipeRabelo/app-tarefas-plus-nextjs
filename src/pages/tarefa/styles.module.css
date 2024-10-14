@@ -133,7 +133,6 @@
   white-space: pre-wrap;
   width: 100%;
   font-weight: bold;
-  /* border-radius: 6px; */
   padding: 11px 8px;
   margin-top: 16px;
 }
@@ -182,4 +181,16 @@
   font-weight: bold;
   color: #FFF;
   background-color: #101026;
+}
+
+
+@media screen and (max-width: 668px) {
+
+  .commentsContainer h2{
+    font-size: 1.7rem;
+  }
+  
+  .comments p  {
+    font-size: 16px;
+  }
 }
