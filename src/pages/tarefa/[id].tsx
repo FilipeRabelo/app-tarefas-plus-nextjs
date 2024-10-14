@@ -16,7 +16,8 @@ import Head from 'next/head';
 import styles from './styles.module.css';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { TextArea } from '@/components/textArea';
-import { FaTrash } from 'react-icons/fa'
+import { FaTrash, FaArrowLeft } from 'react-icons/fa';
+import Link from "next/link";
 
 
 interface TarefaProps {
@@ -54,7 +55,7 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
     if (!session?.user?.email || !session?.user?.name) return;
 
     try { // criando o documento comentários - fazer a requisição ao bd e criar uma nova coleção de comentários
-      
+
       const docRef = await addDoc(collection(db, "comments"), {
         comment: input,
         created: new Date(),
@@ -80,15 +81,15 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
     }
   }
 
-  async function handleDeleteComment(id: string){
-    try{      
+  async function handleDeleteComment(id: string) {
+    try {
       const docRef = doc(db, 'comments', id);   // criando a referencia e buscando no db
       await deleteDoc(docRef);                  // deletando essa referencia - id do comment
       const deleteComment = comments.filter((item) => item.id !== id); // filter() devolve todos os item menos o que cliquei
       setComments(deleteComment);   // passando nova lista para o useState sem o deletado
 
       alert('Comentário deletado');
-    }catch(err){
+    } catch (err) {
       console.log(err)
     }
     // acessar a useState, achar o item deletado e mostrar ela sem ele
@@ -147,7 +148,21 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
             <p>{item.comment}</p>
 
             <div className={styles.headComment}>
+
+              <Link href={'../dashboard'}>
+                <button className={styles.btnVoltar}>
+                  <FaArrowLeft
+                    size={24}
+                    color='#39FF14'
+                  />
+                </button>
+              </Link>
+
               <label className={styles.commentsLabelName}><span>{item.name}</span></label>
+
+              {/* <Link className={styles.linkVoltar} href='/'>VOLTAR</Link> */}
+
+
 
               {item.user === session?.user?.email && (
                 <button className={styles.buttonTrash} onClick={() => handleDeleteComment(item.id)}>
@@ -159,7 +174,7 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
               )}
 
             </div>
-          
+
           </article>
         ))}
 

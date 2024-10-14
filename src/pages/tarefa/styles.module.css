@@ -150,6 +150,13 @@
   color: #3183ff;
 }
 
+.btnVoltar{
+  background-color: transparent;
+  border: none;
+  margin-right: 9px;
+  cursor: pointer;
+}
+
 .buttonTrash {
   border: none;
   background-color: transparent;
