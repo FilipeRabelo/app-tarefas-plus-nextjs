@@ -14,8 +14,8 @@
 
   border-radius: 6px;
   background-color: #1d1d2e;
-  border: 1.5px solid #909090;
-  /* box-shadow: 0 0 10px rgba(220, 20, 60, 0.5); */
+  border: 1.5px solid rgb(144, 144, 144, 0.5);
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
   padding: 16px 8px;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .tarefa {
-  border: 1.5px solid #909090;
-  /* box-shadow: 0 0 10px rgba(220, 20, 60, 0.5); */
+  border: 1.5px solid rgb(144, 144, 144, 0.5);
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
   border-radius: 6px;
   padding: 14px;
   line-height: 150%;
@@ -39,6 +39,7 @@
 }
 
 .tarefa p {
+  min-height: 50px;
   white-space: pre-wrap;
   width: 100%;
   background-color: #ddd;
@@ -49,11 +50,10 @@
   width: 100%;
   max-width: 1024px;
   margin: 28px 0;
-
   border-radius: 6px;
   background-color: #1d1d2e;
-  border: 1.5px solid #909090;
-  /* box-shadow: 0 0 10px rgba(220, 20, 60, 0.5); */
+  border: 1.5px solid rgb(144, 144, 144, 0.5);
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
   padding: 16px 8px;
 }
 
@@ -61,6 +61,7 @@
   background-color: #1d1d2e;
   margin-bottom: 19px;
   color: #fff;
+  font-size: 1.3rem;
 }
 
 .btn {
@@ -76,7 +77,8 @@
   transition: all 0.7s;
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
   }
 }
 
@@ -94,7 +96,7 @@
 /*------------------------------------------------*/
 
 .commentsContainer {
-  background-color: #1d1d2e;
+  background-color: #ccc;
   width: 100%;
   max-width: 1024px;
   margin: 40px auto 20px auto;
@@ -102,22 +104,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #909090;
-  padding: 16px 8px;
+  border: 1.5px solid #FFF;
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
+  padding: 18px 18px;
   border-radius: 6px;
 }
 
 .commentsContainer h2 {
-  background-color: #1d1d2e;
+  background-color: #ccc;
   margin: 8px auto 24px auto;
-  color: #fff;
+  color: #000;
+  font-size: 1.9rem;
+  font-weight: bold;
 }
 
 .comments {
   width: 100%;
   border-radius: 6px;
   border: 1.5px solid #909090;
-  /* padding: 14px; */
+  padding: 14px;
   margin-bottom: 19px;
 }
 
@@ -128,8 +133,9 @@
   white-space: pre-wrap;
   width: 100%;
   font-weight: bold;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   padding: 11px 8px;
+  margin-top: 16px;
 }
 
 .commentsLabelName {
@@ -154,11 +160,13 @@
 .comments p {
   white-space: pre-wrap;
   width: 100%;
-  background-color: #ddd;
+  background-color: #101026;
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
+  color: #fff;
   font-weight: bold;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  padding: 17px 7px;
+  font-size: 19px;
+  border-radius: 6px;
+  padding: 17px 11px;
 }
 
 .spanOffComent {
@@ -168,10 +176,10 @@
   justify-content: center;
   width: 100%;
   padding: 17px 7px;
-  border: 1px solid #ddd;
+  border: 1.5px solid #FFF;
   border-radius: 6px;
   font-size: 19px;
   font-weight: bold;
-  color: #000;
-  background-color: #ddd;
+  color: #FFF;
+  background-color: #101026;
 }

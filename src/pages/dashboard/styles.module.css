@@ -58,16 +58,16 @@
 
 .tarefaContainer {
   /* background-color: #0f0f0f; */
-  background-color: #1d1d2e;
-  border: 1px solid #909090;
-  border-radius: 8px;
+  background-color: #ccc;
   margin: 35px auto;
   padding: 18px 18px;
   width: 94%;
   max-width: 995px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+  border-radius: 8px;
+  border: 1.5px solid #FFF;
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
 }
 
 .tarefaContainer a {
@@ -77,10 +77,10 @@
 
 .tarefaContainer h1 {
   /* background-color: #0f0f0f; */
-  background-color: #1d1d2e;
-  color: #fff;
+  background-color: #ccc;
+  color: #000;
   text-align: center;
-  font-size: 34px;
+  font-size: 1.9rem;
   margin: 9px auto 36px auto;
   font-weight: bold;
 }
@@ -98,7 +98,7 @@
   flex-direction: column;
   align-items: flex-start;
   border: 1.5px solid #909090;
-  box-shadow: 0 0 5px rgba(220, 20, 60, 0.5);
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
   border-radius: 6px;
   padding: 18px 14px;
 }
@@ -130,15 +130,23 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  box-shadow: 0 0 10px rgb(144, 144, 144, 0.5);
+  border-radius: 6px;
+  padding: 17px 4px;
 }
 
 .linkTarefaPublica p {
+  font-size: 19px;
+  padding: 17px 17px;
   color: #fff;
   white-space: pre-wrap;
 }
 
 .tarefaContent p {
-  white-space: pre-wrap; /* para respeitar as quebras de linha com o enter*/
+  font-size: 19px;
+  padding: 17px 11px;
+  color: #fff;
+  white-space: pre-wrap;
 }
 
 .trashButton {

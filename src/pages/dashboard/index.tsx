@@ -189,6 +189,7 @@ export default function Dashboard({ user }: HomeProps) {      // recebe a propri
                     color="#FF0000"                    
                   />
                 </button>
+                
               </div>
 
               {item.public && (                 // && se ela tiver publica mostra a div

@@ -126,13 +126,15 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
         {comments.map((item) => (
           <article key={item.id} className={styles.comments}>
 
+            <p>{item.comment}</p>
+
             <div className={styles.headComment}>
-              <label className={styles.commentsLabelName}>User: <span>{item.name}</span></label>
+              <label className={styles.commentsLabelName}><span>{item.name}</span></label>
 
               {item.user === session?.user?.email && (
                 <button className={styles.buttonTrash}>
                   <FaTrash
-                    size={21}
+                    size={24}
                     color='#FF0000'
                   />
                 </button>
@@ -140,7 +142,7 @@ export default function Tarefa({ item, allComments }: TarefaProps) {  // preciso
 
             </div>
 
-            <p>{item.comment}</p>
+            
 
           </article>
         ))}
